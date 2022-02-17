@@ -1,22 +1,23 @@
-// import 'cesium/Widget/widgets.css'
+import 'cesium/Widgets/widgets.css'
 import { 
   Viewer, 
   Ion, 
-  Rectangle,
+  // Rectangle,
   IonWorldImageryStyle,
   IonImageryProvider,
-  ArcGisMapServerImageryProvider,
+  // ArcGisMapServerImageryProvider,
   defined,
   when,
   ScreenSpaceEventType,
   ScreenSpaceEventHandler,
-  SingleTileImageryProvider,
+  // SingleTileImageryProvider,
   createWorldTerrain,
   createWorldImagery,
-  SceneMode
+  SceneMode,
 } from 'cesium'
 
 Ion.defaultAccessToken = process.env.CESIUM_TOKENID
+console.log(process.env.CESIUM_TOKENID)
 
 const viewer = new Viewer('cesium-container', {
   terrainProvider: createWorldTerrain({
@@ -53,17 +54,17 @@ blackMarble.alpha = 0.5
 blackMarble.brightness = 2 
 
 // add a single tile imagery provider  
-layers.addImageryProvider(
-  new SingleTileImageryProvider({
-    url: './images/images.png',
-    rectangle: Rectangle.fromDegrees(-75.0, 28.0, -67.0, 29.75)
-  })); 
+// layers.addImageryProvider(
+//   new SingleTileImageryProvider({
+//     url: '../images/images.png',
+//     rectangle: Rectangle.fromDegrees(-75.0, 28.0, -67.0, 29.75)
+//   })); 
 
-const mapServerProvider = new ArcGisMapServerImageryProvider({
-  url: 'https://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetGray/MapServer'
-})
+// const mapServerProvider = new ArcGisMapServerImageryProvider({
+//   url: 'https://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetGray/MapServer'
+// })
 
-layers.addImageryProvider(mapServerProvider)
+// layers.addImageryProvider(mapServerProvider)
   
 // get location of a point
 const handler = new ScreenSpaceEventHandler(viewer.canvas)
@@ -93,5 +94,3 @@ handler.setInputAction(function(event) {
   //   console.log(pickedPosition)
   // }
 }, ScreenSpaceEventType.LEFT_CLICK)
-
-console.log(viewer)

@@ -12,7 +12,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    clean: true
+    clean: true,
+    sourcePrefix: ''
   },
   devtool: 'inline-source-map',
   amd: {
@@ -35,7 +36,7 @@ module.exports = {
     alias: {
       cesium: path.resolve(__dirname, cesiumSource)
     },
-    mainFiles: ['module', 'main', 'Cesium'],
+    mainFiles: ['index', 'Cesium'],
   },
   devServer: {
     static: './dist'
