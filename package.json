@@ -10,7 +10,7 @@
     "rollup:watch": "rollup -w -c rollup.config.js",
     "webpack:build": "webpack",
     "webpack:watch": "webpack --watch",
-    "start": "webpack serve --open"
+    "start": "webpack serve"
   },
   "keywords": [],
   "author": "",
